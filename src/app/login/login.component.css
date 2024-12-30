@@ -1,0 +1,83 @@
+.login-page {
+    display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  background-image: url('https://st4.depositphotos.com/10325396/20155/i/450/depositphotos_201554746-stock-photo-double-exposure-image-stock-market.jpg');
+  background-size: cover;
+  height: 800px; 
+  background-position: center;
+  background-repeat: no-repeat;  
+}
+  .form-container {
+    background-color: rgba(255, 255, 255, 0.7); 
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    backdrop-filter: blur(10px); 
+  }
+  
+  h1{
+    margin: 20px;
+    color: rgb(50, 124, 146);
+}
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #677ec6;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  
+  .links {
+    margin-top: 15px;
+  }
+  
+  .links a {
+    color:rgb(189, 21, 21);
+    text-decoration: none;
+  }
+  
+  .errors {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  

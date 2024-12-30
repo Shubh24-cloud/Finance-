@@ -1,0 +1,63 @@
+<div class="dashboard-container">
+    <div class="widgets-row">
+      <div class="widget-card">
+        <h3>Total Income</h3>
+        <p>{{ totalIncome | currency:'INR' }}</p>
+      </div>
+      <div class="widget-card">
+        <h3>Spent Till Now</h3>
+        <p>{{ spentTillNow | currency:'INR' }}</p>
+      </div>
+      <div class="widget-card">
+        <h3>Remaining Budget</h3>
+        <p>{{ remainingBudget | currency:'INR' }}</p>
+      </div>
+    </div>
+  
+    <div class="charts-row">
+      <!-- Bar Chart -->
+      <dx-chart
+        [dataSource]="chartData"
+        title="Monthly Spending and Savings"
+        type="bar"
+        class="chart"
+      >
+        <!-- Correctly terminated 'Spent' series -->
+        <dxi-series 
+          argumentField="month" 
+          valueField="spent" 
+          name="Spent" 
+          type="bar"
+          color="#FF6666" 
+        ></dxi-series><h1></h1>
+        <dxi-series 
+          argumentField="month" 
+          valueField="saved" 
+          name="Saved" 
+          type="bar"
+          color="beige" 
+        ></dxi-series>
+        <dxo-legend [visible]="true"></dxo-legend>
+        <dxo-argument-axis [title]="{ text: 'Month' }"></dxo-argument-axis>
+      </dx-chart>
+  
+      <!-- Pie Chart -->
+      <dx-pie-chart
+        [dataSource]="pieChartData"
+        title="Monthly Expense Breakdown"
+        class="chart"
+        [palette]="['#ff9999', '#66b3ff', '#99ff99', '#ffcc99']"
+      >
+        <dxi-series
+          argumentField="category"
+          valueField="amount"
+        >
+          <dxo-label [visible]="true">
+            <dxo-format type="percent" precision="1"></dxo-format>
+          </dxo-label>
+        </dxi-series>
+        <dxo-legend [visible]="true"></dxo-legend>
+      </dx-pie-chart>
+    </div>
+  </div>
+  

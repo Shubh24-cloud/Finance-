@@ -1,0 +1,28 @@
+<div class="addcashbutton px-3 mt-2">
+    <button class="btn btn-primary" (click)="cashPopup()">Add Cash</button>
+    </div>
+
+<div class="container-fluid mt-3">
+    <div class="tableFields">
+        <h2 class="fw-bold mb-4 text-center">Income Data</h2>
+        <dx-data-grid
+      
+  id="gridContainer"
+  [dataSource]="IncomeData"
+  width="auto"
+
+
+  [showBorders]="true"
+>
+
+<dxi-column dataField="source" caption="Source" alignment="center"></dxi-column>
+
+<dxi-column dataField="amount" caption="Amount"alignment="center" ></dxi-column>
+<dxi-column dataField="date" format="dd-MMM-yyyy" dataType="date" caption="Date"alignment="center"></dxi-column>
+
+    
+
+
+</dx-data-grid>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="container mt-3">
+    <div class="tableFields">
+        <h2 class="fw-bold mb-4 text-center">Expenditure Transactions</h2>
+        <dx-data-grid
+      
+  id="gridContainer"
+  [dataSource]="ExpenditureData"
+  width="auto"
+
+
+  [showBorders]="true"
+>
+
+<dxi-column dataField="purpose" caption="Purpose" alignment="center"></dxi-column>
+
+<dxi-column dataField="amount" caption="Amount"alignment="center" >
+       </dxi-column>
+<dxi-column dataField="date" format="dd-MMM-yyyy" dataType="date" caption="Date"alignment="center"></dxi-column>
+
+    
+
+
+</dx-data-grid>
+    </div>
+</div>
+
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-10"></div>
+        <div class="col-2 mt-3">
+            <dx-button
+            text="Back To Dashboard"
+            icon="back"
+            stylingMode="contained"
+            type="danger"
+            (onClick)="Back()">
+          </dx-button>
+        </div>
+    </div>
+</div> -->
+

@@ -1,0 +1,14 @@
+
+<h2 class="fw-bold mb-4 text-center">Budget History</h2>
+<dx-data-grid  
+id="gridContainer"
+[dataSource]="budgetHistory"
+[columnAutoWidth]="true"
+[showBorders]="true"
+>
+<dxi-column dataField="category" caption="Category" alignment="center"></dxi-column>
+<dxi-column dataField="budgetPeriod" caption="Budget Period"alignment="center"></dxi-column>
+<dxi-column dataField="amount" caption="Amount"alignment="center" ></dxi-column>
+<dxi-column dataField="startDate" caption="Start Date" format="dd-MMM-yyyy" dataType="date" alignment="center"></dxi-column>
+<dxi-column dataField="endDate" caption="End Date" format="dd-MMM-yyyy" dataType="date" alignment="center"></dxi-column>
+</dx-data-grid>

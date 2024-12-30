@@ -1,0 +1,104 @@
+<div class="button mx-1">
+  <button class="btn-btn-primary" (click)="listBudget()">Budget History</button> 
+  </div>
+  
+  <div class="container" >
+    <h2>Create Budget</h2>
+  
+    <form [formGroup]="budgetForm" (ngSubmit)="onSubmitBudget()">
+      <div class="form-group">
+        <label for="category">Category</label>
+        <input
+          id="category"
+          type="text"
+          class="form-control"
+          formControlName="category"
+          placeholder="e.g. Groceries, Rent"
+        />
+        <div class="errors" *ngIf="submitBudget && budgetForm.get('category')?.errors?.['required']">
+          Category is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input
+          id="amount"
+          type="number"
+          class="form-control"
+          formControlName="amount"
+          placeholder="Enter the amount"
+          [min]="0"
+        />
+        <div class="errors" *ngIf="submitBudget && budgetForm.get('amount')?.errors?.['required']">
+          Amount is required.
+        </div>
+        <div class="errors" *ngIf="submitBudget && budgetForm.get('amount')?.errors?.['min']">
+          Amount must be positive.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="period">Budget Period</label>
+        <select id="period" class="form-control" formControlName="period">
+          <option value="weekly">Weekly</option>
+          <option value="monthly">Monthly</option>
+          <option value="yearly">Yearly</option>
+        </select>
+        <div class="errors" *ngIf="submitBudget && budgetForm.get('period')?.errors?.['required']">
+          Budget period is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="startDate">Start Date</label>
+        <input
+          id="startDate"
+          type="date"
+          class="form-control"
+          formControlName="startDate"
+        />
+        <div class="errors" *ngIf="submitBudget && budgetForm.get('startDate')?.errors?.['required']">
+          Start date is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="endDate">End Date</label>
+        <input
+          id="endDate"
+          type="date"
+          class="form-control"
+          formControlName="endDate"
+        />
+        <div class="errors" *ngIf="submitBudget && budgetForm.get('endDate')?.errors?.['required']">
+          End date is required.
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Save Budget</button>
+    </form>
+  </div>
+
+<!-- <div class="existing" [hidden]="ShowExisting">
+  <h1>Existing Budgets</h1>
+  <div class="budget-widget" *ngIf="existingBudget">
+    <div class="widget-header">
+        <h3>{{ existingBudget.category }} </h3>
+        <h3 class="budget-amount">{{ existingBudget.totalBudget | currency:'INR' }}</h3>
+    </div>
+    <div class="widget-content">
+        <div class="progress-bar-container">
+            <div class="progress-bar" 
+                 [style.width.%]="(existingBudget.spent / existingBudget.totalBudget) * 100"
+                 [style.backgroundColor]="existingBudget.spent > existingBudget.remaining ? 'red' : 'green'">
+            </div>
+        </div>
+        <div class="amounts">
+            <p class="spent"><strong>Spent:</strong> {{ existingBudget.spent | currency:'INR' }}</p>
+            <p class="remaining"><strong>Remaining:</strong> {{ existingBudget.remaining | currency:'INR' }}</p>
+        </div>
+    </div>
+  </div>
+  </div> -->
+
+ 

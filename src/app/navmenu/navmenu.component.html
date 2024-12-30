@@ -1,0 +1,67 @@
+<mat-toolbar class="mat-elevation-z3">
+  <button mat-icon-button (click)="collapsed.set(!collapsed())"  aria-label="Menu" >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <a class="navbar-brand" href="#">Finance Manager</a>
+
+  
+
+  <div class="icon-group">
+    <button mat-icon-button aria-label="Settings icon">
+      <mat-icon>settings</mat-icon>
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="profileMenu" aria-label="Profile menu">
+      <mat-icon>person</mat-icon>
+    </button>
+    <mat-menu #profileMenu="matMenu" xPosition="after" yPosition="below">
+      <button mat-menu-item>
+        <mat-icon>account_circle</mat-icon> My Profile
+      </button>
+      <button mat-menu-item>
+        <mat-icon>help</mat-icon> Help
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item routerLink="/logout" (click)="switchtofrontpage()">
+        <mat-icon>logout</mat-icon> Logout
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" [opened]="true" [style.width]="sidenavWidth()">
+    <mat-nav-list>
+      <mat-list-item routerLink="/dashboard">
+        <mat-icon matListIcon>dashboard</mat-icon>
+        <span matLine>Dashboard</span>
+      </mat-list-item>
+      <mat-list-item routerLink="/dashboard/add">
+        <mat-icon matListIcon>monetization_on</mat-icon>
+        <span matLine>Add Cash</span>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/dashboard/budget">
+        <mat-icon matListIcon>account_balance_wallet</mat-icon>
+        <span matLine>Budget</span>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/dashboard/Expenditure">
+        <mat-icon>savings</mat-icon>
+        <span matLine>Expenditure</span>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/dashboard/ExpendatureData">
+        <mat-icon matListIcon>timeline</mat-icon>
+      <span matLine >Transactions History</span>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/dashboard/BudgetData">
+        <mat-icon matListIcon>account_balance_wallet</mat-icon>
+        <span matLine >Budget History</span>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content [style.margin-left]="collapsed() ? '65px' : '250px'">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
